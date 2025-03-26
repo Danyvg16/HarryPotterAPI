@@ -1,4 +1,4 @@
-let characters = []
+let characters = [];
 const characterCards = document.getElementById('characterCards');
 
 fetch('https://hp-api.onrender.com/api/characters').then(
@@ -11,10 +11,6 @@ fetch('https://hp-api.onrender.com/api/characters').then(
         characters = data;
         allCharacters(characters);
         console.log('characters');
-       data.forEach(character => {
-        const card = createCard(character);
-        characterCards.innerHTML += card
-       });
     }).catch(error =>{
         console.log('Hay un problema', error);
     });
@@ -45,14 +41,11 @@ fetch('https://hp-api.onrender.com/api/characters').then(
         `;
     }
 
-document.getElementById('SearchCharacter').addEventListener('click', () => {
-    const searchSomeCharacters = document.getElementById('searchInput');
-    console.log('funciona');
+  document.getElementById('SearchCharacter').addEventListener('click', () => {
+    const searchSomeCharacters = document.getElementById('searchInput').value.toLowerCase();
     const filteredCharacters = characters.filter(character => {
-        console.log("characters.filter");
         const characterInfo = `${character.name} ${character.house} ${character.ancestry}`;
-        return characterInfo.includes(searchSomeCharacters);
+      return characterInfo.toLowerCase().includes(searchSomeCharacters);
     });
     allCharacters(filteredCharacters);
-    console.log("filteredCharacters")
-});
+  });
