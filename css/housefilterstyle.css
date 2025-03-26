@@ -1,0 +1,16 @@
+#houseFilter {
+  margin: 0 0 10px;
+  padding: 10px;
+  border: 1px solid #52021B;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-top: 15px;
+}
+
+#houseFilter:focus {
+  outline: none; 
+  border-color: #52021B;
+  box-shadow: 0 0 5px #52021B; 
+}
+
+
