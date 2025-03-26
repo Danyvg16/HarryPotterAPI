@@ -49,3 +49,15 @@ fetch('https://hp-api.onrender.com/api/characters').then(
     });
     allCharacters(filteredCharacters);
   });
+
+  houseFilter.addEventListener('change', () => {
+    const selectedHouse = houseFilter.value;
+    let filteredCharacters = characters;
+
+    if (selectedHouse) {
+        filteredCharacters = characters.filter(character => {
+            return character.house === selectedHouse;
+        });
+    }
+    allCharacters(filteredCharacters);
+});
